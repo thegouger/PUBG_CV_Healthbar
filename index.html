@@ -1,0 +1,38 @@
+<html>
+<body>
+<script>
+face = 'face0.gif';
+
+function setFace(f)
+{
+    if(f != face)
+    {
+        face = f;
+        document.getElementById('face').src = 'images/' + face;
+    }
+}
+
+setInterval(function()
+{
+    var request = new XMLHttpRequest();
+    request.open( "GET", 'http://localhost:6969/health', false );
+    request.send( null );
+    health = JSON.parse(request.responseText)['health'];
+    
+    if(health < 20)
+        setFace('face4.gif');
+    else if(health < 40)
+        setFace('face3.gif');
+    else if(health < 70)
+        setFace('face2.gif');
+    else if(health < 95)
+        setFace('face1.gif');
+    else
+        setFace('face0.gif');
+        
+}, 500);
+
+</script>
+<img id="face" src="images/face0.gif" style="width: 100%; height: 100%" />
+</body>
+</html>
