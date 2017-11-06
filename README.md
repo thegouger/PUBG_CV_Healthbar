@@ -14,6 +14,6 @@ A Python application that uses OpenCV to detect the PUBG healthbar, and publishe
 
 # Custom Web View
 
-* Setting the `"CUSTOM_HTML": false` to true will serve a custom index.html, and will serve any content in images/
+* In config.json, setting the `"CUSTOM_HTML": false` to `true` will serve a custom index.html, and will serve any content in images/
 * Modify this index.html as desired to produce a custom OBS widget
 * The web service exposes an endpoint `/health`, which doing a GET on will return the detected health
